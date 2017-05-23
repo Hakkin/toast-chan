@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 )
 
@@ -18,7 +19,7 @@ func loadConfig(configname string, configstruct interface{}, panicerr bool) erro
 	io, err := ioutil.ReadFile(configname + ".json")
 	if err != nil {
 		if panicerr {
-			panic(err) // TODO: Change to proper logging once made
+			logFatal(fmt.Sprintf("There was an error while loading config %s.json: %s", configname, err))
 		}
 		return err
 	}
@@ -26,7 +27,7 @@ func loadConfig(configname string, configstruct interface{}, panicerr bool) erro
 	err = json.Unmarshal(io, &configstruct)
 	if err != nil {
 		if panicerr {
-			panic(err) // TODO: Change to proper logging once made
+			logFatal(fmt.Sprintf("There was an error while parsing config %s.json: %s", configname, err))
 		}
 		return err
 	}

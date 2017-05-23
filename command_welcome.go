@@ -19,6 +19,8 @@ func welcomeUser(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
 	if m.Member.GuildID == s.State.User.ID {
 		return
 	}
+	
+	logInfo(fmt.Sprintf("%s (%s#%s) joined the server, sending welcome.", m.User.ID, m.User.Username, m.User.Discriminator))
 
 	s.ChannelMessageSend(config.Channels.GreetingChannel, fmt.Sprintf(
 		"Welcome to the ASTOST English Discord, <@%s>!\n"+
