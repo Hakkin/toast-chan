@@ -6,11 +6,10 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-const (
-	command = "welcome"
-)
-
 func init() {
+	const (
+		command = "welcome"
+	)
 	addCommand(command, welcomeUser)
 }
 
@@ -19,13 +18,13 @@ func welcomeUser(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
 	if m.Member.GuildID == s.State.User.ID {
 		return
 	}
-	
-	logInfo(fmt.Sprintf("%s#%s joined the server, sending welcome.", m.User.Username, m.User.Discriminator))
 
-	s.ChannelMessageSend(config.Channels.GreetingChannel, fmt.Sprintf(
-		"Welcome to the ASTOST English Discord, <@%s>!\n"+
-			"As a safety precaution, we must verify new users before they are able to enter the main channels.\n"+
-			"Please post a link to your ASTOST profile or tell us your ASTOST username to expedite this process.\n"+
-			"It may take us some time to verify users, so please be patient.\n"+
-			"If you need help with anything, @ one of the admins or moderators in the user list.", m.User.ID))
+	s.ChannelMessageSend(config.Channels.GreetingChannel,
+		fmt.Sprintf("Welcome to the ASTOST English Discord, <@%s> (｡＾＿＾｡)づ！！！", m.User.ID))
+	s.ChannelMessageSend(config.Channels.GreetingChannel,
+		"To make sure we know who you are, please post a link to your ASTOST profile or let us know what your username is. Sometimes it takes us a while to check this so please be patient.")
+	s.ChannelMessageSend(config.Channels.GreetingChannel,
+		"If you need help with anything, @ one of the admins or moderators in the userlist and we'll get back to you as soon as possible.")
+	s.ChannelMessageSend(config.Channels.GreetingChannel,
+		"Once again, welcome to ATOAST! ＼(｡＾ ｏ ＾｡)／")
 }

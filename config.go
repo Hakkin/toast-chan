@@ -10,6 +10,10 @@ type mainConfig struct {
 	Token    string
 	Channels struct {
 		GreetingChannel string
+		ModChannel string
+	}
+	HighlightRoles struct {
+		ModChannel map[string]bool
 	}
 }
 
