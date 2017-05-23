@@ -9,11 +9,13 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+var config mainConfig
+
 func main() {
-	var config mainConfig
 	loadConfig("config", &config, true) // Load config, panic if there is an error, so no need to check it
+	fmt.Println(config)
 	
-	bot, err := discordgo.New("Bot" + config.Token)
+	bot, err := discordgo.New("Bot " + config.Token)
 	if err != nil {
 		panic(err) // TODO: Change to proper logging once made
 	}
@@ -24,7 +26,8 @@ func main() {
 		panic(err) // TODO: Change to proper logging once made
 	}
 	
-	// TODO: Register commands
+	// Register commands
+	bot.AddHandler(welcomeUser)
 	
 	// Run until CTRL+C
 	fmt.Println("Bot running, CTRL+C to shut down.")

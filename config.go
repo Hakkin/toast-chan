@@ -7,6 +7,9 @@ import (
 
 type mainConfig struct {
 	Token string
+	Channels struct {
+		GreetingChannel string
+	}
 }
 
 // Loads JSON config into supplied struct, optionally panics on error
