@@ -6,7 +6,7 @@ import (
 )
 
 type mainConfig struct {
-	Token string
+	Token    string
 	Channels struct {
 		GreetingChannel string
 	}
@@ -22,7 +22,7 @@ func loadConfig(configname string, configstruct interface{}, panicerr bool) erro
 		}
 		return err
 	}
-	
+
 	err = json.Unmarshal(io, &configstruct)
 	if err != nil {
 		if panicerr {
@@ -30,6 +30,6 @@ func loadConfig(configname string, configstruct interface{}, panicerr bool) erro
 		}
 		return err
 	}
-	
+
 	return nil
 }
