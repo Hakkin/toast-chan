@@ -6,8 +6,12 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+const (
+	command = "welcome"
+)
+
 func init() {
-	addCommand(welcomeUser)
+	addCommand(command, welcomeUser)
 }
 
 func welcomeUser(s *discordgo.Session, m *discordgo.GuildMemberAdd) {

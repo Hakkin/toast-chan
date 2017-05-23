@@ -1,5 +1,5 @@
 package main
 
-func addCommand(function interface{}) {
-	commandList = append(commandList, welcomeUser)
+func addCommand(name string, function interface{}) {
+	commandList[name] = function
 }

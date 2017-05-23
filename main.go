@@ -10,7 +10,11 @@ import (
 )
 
 var config mainConfig
-var commandList []interface{}
+var commandList = make(map[string]interface{})
+
+func init() {
+
+}
 
 func main() {
 	loadConfig("config", &config, true) // Load config, panic if there is an error, so no need to check it
@@ -29,6 +33,7 @@ func main() {
 	
 	// Register commands
 	for _, function := range commandList {
+		// TODO: Log what functions are being added
 		bot.AddHandler(function)
 	}
 	
