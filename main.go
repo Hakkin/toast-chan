@@ -18,8 +18,8 @@ func init() {
 
 func main() {
 	// Load config, panic if there is an error, so no need to check it
-	loadConfig("config", &config, true) 
-	
+	loadConfig("config", &config, true)
+
 	bot, err := discordgo.New("Bot " + config.Token)
 	if err != nil {
 		logFatal("There was an error creating the Discord sesion: " + err.Error())
