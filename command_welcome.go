@@ -7,7 +7,7 @@ import (
 )
 
 func init() {
-	commandList = append(commandList, welcomeUser)
+	addCommand(welcomeUser)
 }
 
 func welcomeUser(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
