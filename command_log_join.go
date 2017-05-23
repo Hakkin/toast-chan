@@ -15,7 +15,7 @@ func init() {
 
 func logJoin(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
 	// Don't do anything if the event was the bot joining
-	if m.Member.GuildID == s.State.User.ID {
+	if m.User.ID == s.State.User.ID {
 		return
 	}
 
