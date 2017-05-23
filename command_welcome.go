@@ -11,8 +11,6 @@ func init() {
 }
 
 func welcomeUser(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
-	fmt.Println(m.Member)
-
 	// Don't do anything if the event was the bot joining
 	if m.Member.GuildID == s.State.User.ID {
 		return
