@@ -10,6 +10,7 @@ import (
 )
 
 var config mainConfig
+var commandList []interface{}
 
 func main() {
 	loadConfig("config", &config, true) // Load config, panic if there is an error, so no need to check it
@@ -27,7 +28,10 @@ func main() {
 	}
 	
 	// Register commands
-	bot.AddHandler(welcomeUser)
+	for _, function := range commandList {
+		bot.AddHandler(function)
+	}
+	
 	
 	// Run until CTRL+C
 	fmt.Println("Bot running, CTRL+C to shut down.")

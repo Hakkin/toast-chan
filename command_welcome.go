@@ -6,6 +6,10 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+func init() {
+	commandList = append(commandList, welcomeUser)
+}
+
 func welcomeUser(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
 	fmt.Println(m.Member)
 
