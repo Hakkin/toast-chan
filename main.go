@@ -18,7 +18,6 @@ func init() {
 
 func main() {
 	loadConfig("config", &config, true) // Load config, panic if there is an error, so no need to check it
-	fmt.Println(config)
 	
 	bot, err := discordgo.New("Bot " + config.Token)
 	if err != nil {
