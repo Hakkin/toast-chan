@@ -24,8 +24,8 @@ func welcomeUser(s *discordgo.Session, m *discordgo.GuildMemberAdd) {
 
 	s.ChannelMessageSend(config.Channels.GreetingChannel, fmt.Sprintf(
 		"Welcome to the ASTOST English Discord, <@%s>!\n"+
-			"We must verify new users before they are able to enter the main rooms as a safety precaution.\n"+
-			"Please post a link to your ASTOST profile or tell us your ASTOST username for verification.\n"+
-			"Please be patient, it may take some time to verify users.\n"+
-			"If you need help with anything, please @ one of the Admins or Moderators in the user list.", m.User.ID))
+			"As a safety precaution, we must verify new users before they are able to enter the main channels..\n"+
+			"Please post a link to your ASTOST profile or tell us your ASTOST username to expedite this process.\n"+
+			"It may take us some time to verify users, so please be patient.\n"+
+			"If you need help with anything, @ one of the admins or moderators in the user list.", m.User.ID))
 }

@@ -16,6 +16,7 @@ type mainConfig struct {
 // Loads JSON config into supplied struct, optionally panics on error
 // Config struct fields must be exported
 func loadConfig(configname string, configstruct interface{}, panicerr bool) error {
+	logInfo(fmt.Sprintf("Loading config %s.json.", configname))
 	io, err := ioutil.ReadFile(configname + ".json")
 	if err != nil {
 		if panicerr {
