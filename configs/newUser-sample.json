@@ -1,12 +1,9 @@
 {
-	"Token": "",
 	"Channels": {
 		"GreetingChannel": "",
 		"ModChannel": ""
 	},
 	"HighlightRoles": {
-		"ModChannel": {
-			"": true
-		}
+		"": true
 	}
 }

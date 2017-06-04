@@ -9,8 +9,11 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
-var config mainConfig
-var commandList = make(map[string]interface{})
+type mainConfigS struct {
+	Token    string
+}
+
+var config mainConfigS
 
 func init() {
 
